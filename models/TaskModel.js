@@ -13,6 +13,9 @@ const taskSchema = mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  completedAt: {
+    type: Date,
+  },
 });
 
 module.exports = mongoose.model("Task", taskSchema);
