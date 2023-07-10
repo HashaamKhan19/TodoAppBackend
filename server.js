@@ -14,6 +14,7 @@ app.use("/tasks", TaskRoutes);
 const corsConfig = {
   credentials: true,
   origin: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 };
 app.use(cors(corsConfig));
 
