@@ -2,14 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const TaskRoutes = require("./routes/TaskRoutes");
 const cors = require("cors");
+const morgan = require("morgan");
 const app = express();
 require("dotenv").config();
 app.use(express.json());
 const port = process.env.PORT || 3000;
 
-///////ROUTES///////
-app.use("/tasks", TaskRoutes);
-
+app.use(morgan("tiny"));
 //CORS//
 const corsConfig = {
   credentials: true,
@@ -17,6 +16,9 @@ const corsConfig = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 };
 app.use(cors(corsConfig));
+
+///////ROUTES///////
+app.use("/tasks", TaskRoutes);
 
 // Connect to MongoDB
 mongoose
