@@ -50,8 +50,28 @@ const createTask = async (req, res) => {
   }
 };
 
+const updateTask = async (req, res) => {
+  try {
+    const userId = req?.params?.id;
+    const task = await Task.findByIdAndUpdate(userId, {
+      completed: true,
+      completedAt: Date.now(),
+    });
+    res.status(201).json({
+      success: true,
+      data: task,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   getTasks,
   createTask,
   deleteTask,
+  updateTask,
 };

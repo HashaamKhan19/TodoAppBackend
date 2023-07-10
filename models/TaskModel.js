@@ -15,6 +15,7 @@ const taskSchema = mongoose.Schema({
   },
   completedAt: {
     type: Date,
+    default: null,
   },
 });
 
