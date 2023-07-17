@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Environment variables
-ENV DATABASE_URL=mongodb+srv://hashaam:hk42471072@testcluster.qx7vnml.mongodb.net/TodoAppApi?retryWrites=true&w=majority
+ENV MONGO_CONNECTION_STRING
 
 # command to run the application
 CMD ["npm", "start"]
