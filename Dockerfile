@@ -15,5 +15,8 @@ COPY . .
 # Environment variables
 ENV MONGO_CONNECTION_STRING
 
+# specifying the port
+EXPOSE 5000
+
 # command to run the application
 CMD ["npm", "start"]
